@@ -51,8 +51,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       ];
     
-      cards.sort(() => 0.5 - Math.random());
-      console.log(cards);
+     
     
       const grid = document.querySelector('.grid');
       const resultDisplay = document.querySelector('#result');
@@ -61,6 +60,8 @@ document.addEventListener('DOMContentLoaded', () => {
       let cardsWon = [];
 
       function creatBoard(){
+          cards.sort(() => 0.5 - Math.random());
+          console.log(cards);
           for(let i = 0; i < cards.length; i++){
               const card = document.createElement('img');
               card.setAttribute('src', 'scr/images/blank.png');
@@ -86,10 +87,10 @@ document.addEventListener('DOMContentLoaded', () => {
           const optionOneId = cardsChosenIds[0];
           const optionTwoId = cardsChosenIds[1];
           if(optionOneId === optionTwoId) {
-              alert('You have clicked the same image');
+              alert('Você selecionou a mesma carta');
               allCards[optionOneId].setAttribute('src', 'scr/images/blank.png');
           } else if (cardChosen[0] === cardChosen[1]){
-            alert('You have found a match');
+            alert('Você encontrou um par!!');
             allCards[optionOneId].setAttribute('src', 'scr/images/white.png');
             allCards[optionTwoId].setAttribute('src', 'scr/images/white.png');
             allCards[optionOneId].removeEventListener('click', flipCard);
@@ -102,16 +103,24 @@ document.addEventListener('DOMContentLoaded', () => {
           } else{
             allCards[optionOneId].setAttribute('src', 'scr/images/blank.png');
             allCards[optionTwoId].setAttribute('src', 'scr/images/blank.png');
-            alert("Sorry, try again");
+            alert("Tente novamente");
           }  
          
           cardChosen = [];
           cardsChosenIds = [];
           resultDisplay.textContent = cardsWon.length;
           if(cardsWon.length === 6){
-            alert('YOU WON')
+            alert('Fim de jogo')
+            endGame();
+            creatBoard();
           }
 
 
+      }
+
+      function endGame(){
+        for(let i = 0; i < cards.length; i++){
+          grid.removeChild(grid.lastChild);
+        } 
       }
 });

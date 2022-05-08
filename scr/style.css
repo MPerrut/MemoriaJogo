@@ -1,5 +1,10 @@
 .grid {
+    margin: auto;
+    margin-top: 5%;
     width: 400px;
     height: 300px;
     border: solid black 1px;
+}
+h3 {
+      text-align: center;
 }
