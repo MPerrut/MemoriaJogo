@@ -110,6 +110,8 @@ document.addEventListener('DOMContentLoaded', () => {
           cardsChosenIds = [];
           resultDisplay.textContent = cardsWon.length;
           if(cardsWon.length === 6){
+            cardsWon = [];
+            resultDisplay.textContent = cardsWon.length;
             alert('Fim de jogo')
             endGame();
             creatBoard();

@@ -1,9 +1,17 @@
 .grid {
+    background-color: bisque;
     margin: auto;
     margin-top: 5%;
-    width: 400px;
-    height: 300px;
-    border: solid black 5px;
+    
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 10px;
+    padding: 0px 0px;
+
+    
+    width: 430px;
+    height: 320px;
+    border: solid black 1px;
 }
 h3 {
       text-align: center;
